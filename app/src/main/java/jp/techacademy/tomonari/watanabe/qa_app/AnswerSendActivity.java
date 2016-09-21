@@ -62,7 +62,7 @@ public class AnswerSendActivity extends AppCompatActivity implements View.OnClic
     @Override
     public void onClick(View v) {
         //キーボードが出てたら閉じる
-        InputMethodManager im = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        InputMethodManager im = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
         im.hideSoftInputFromWindow(v.getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
 
         DatabaseReference dataBaseReference = FirebaseDatabase.getInstance().getReference();
@@ -71,28 +71,31 @@ public class AnswerSendActivity extends AppCompatActivity implements View.OnClic
 
         Map<String,String> data = new HashMap<String, String>();
 
-    //UID
-    data.put("uid", FirebaseAuth.getInstance().getCurrentUser().getUid());
+        //UID
+        data.put("uid", FirebaseAuth.getInstance().getCurrentUser().getUid());
 
-    //表示名。Preferenceから名前を取る
+        //表示名。Preferenceから名前を取る
 
-    SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
-    String name = sp.getString(Const.NameKEY,"");
-    data.put("name",name);
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        String name = sp.getString(Const.NameKEY,"");
+        data.put("name",name);
 
-    // 回答を取得する
-    String answer = mAnswerEditText.getText().toString();
+        // 回答を取得する
+        String answer = mAnswerEditText.getText().toString();
 
-    if (answer.length() == 0) {
-        // 回答が入力されていない時はエラーを表示するだけ
-        Snackbar.make(v, "回答を入力して下さい", Snackbar.LENGTH_LONG).show();
-        return;
+        if (answer.length() == 0) {
+            // 回答が入力されていない時はエラーを表示するだけ
+            Snackbar.make(v, "回答を入力して下さい", Snackbar.LENGTH_LONG).show();
+            return;
+
+        }
+
+        data.put("body", answer);
+
+        mProgress.show();
+        answerRef.push().setValue(data, this);
+
     }
-    data.put("body", answer);
-
-    mProgress.show();
-    answerRef.push().setValue(data, this);
-}
 
 
 }

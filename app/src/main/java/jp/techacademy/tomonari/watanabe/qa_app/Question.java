@@ -17,7 +17,7 @@ public class Question implements Serializable {
     private byte[] mBitmapArray;
     private ArrayList<Answer> mAnswerArrayList;
 
-    public String getmTitle(){
+    public String getTitle(){
         return mTitle;
     }
 
@@ -30,7 +30,7 @@ public class Question implements Serializable {
     }
 
     public String getUid(){
-        return mName;
+        return mUid;
     }
 
     public String getQuestionUid(){

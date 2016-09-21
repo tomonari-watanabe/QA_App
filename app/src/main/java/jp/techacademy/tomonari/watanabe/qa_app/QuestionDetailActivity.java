@@ -79,7 +79,7 @@ public class QuestionDetailActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         mQuestion = (Question) extras.get("question");
 
-        setTitle(mQuestion.getmTitle());
+        setTitle(mQuestion.getTitle());
 
         //ListViewの準備
 

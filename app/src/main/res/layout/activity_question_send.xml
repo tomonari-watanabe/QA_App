@@ -33,7 +33,7 @@
         android:text="質問内容"
         android:id="@+id/textView"
         android:layout_below="@+id/titleText"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -71,6 +71,5 @@
         android:layout_below="@+id/imageView"
         android:layout_alignParentStart="true"
         android:layout_marginTop="5dp"/>
-
 
 </RelativeLayout>

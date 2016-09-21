@@ -26,7 +26,11 @@
         <activity android:name=".LoginActivity"/>
         <activity android:name=".SettingActivity">
         </activity>
-        <activity android:name=".QuestionActivity">
+        <activity android:name=".QuestionDetailActivity">
+        </activity>
+        <activity android:name=".QuestionSendActivity">
+    </activity>
+        <activity android:name=".AnswerSendActivity">
         </activity>
     </application>
 </manifest>
